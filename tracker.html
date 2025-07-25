@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Tracker Link</title>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"></script>
+</head>
+<body>
+    <h1>Tracker Link</h1>
+    <input type="text" id="customLink" placeholder="Enter your custom link" />
+    <button id="trackButton">Track Link</button>
+
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            const firebaseConfig = {
+      apiKey: "AIzaSyCB_wr4EqhPRzSWQuLgr-eyV9Zisw8_rIs",
+      authDomain: "xr-social-53646.firebaseapp.com",
+      databaseURL: "https://xr-social-53646-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "xr-social-53646",
+      storageBucket: "xr-social-53646.appspot.com",
+      messagingSenderId: "55685443011",
+      appId: "1:55685443011:web:ef0f9de8e329d24d512176"
+    };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);        const database = firebase.database();        document.getElementById('trackButton').addEventListener('click', function() {
+            const customLink = document.getElementById('customLink').value;
+
+            // Create a new entry in the database
+            database.ref('trackedLinks/').push({
+                link: customLink,
+                timestamp: Date.now()            }).then(() => {
+                alert('Link tracked successfully!');            }).catch((error) => {
+                console.error('Error tracking link: ', error);            });        });    </script>
+</body>
+</html>
